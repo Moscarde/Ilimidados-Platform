@@ -1,0 +1,1 @@
+# TODO: desenvolver processo principal que executa to_raw e to_clean
