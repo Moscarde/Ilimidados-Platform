@@ -1,0 +1,1 @@
+# TODO: nessa pasta teremos os arquivos de configuração (YAML, JSON, etc.) e as funções utilizadas para ler
