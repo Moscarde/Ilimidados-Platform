@@ -1,1 +1,4 @@
-# Aqui devem ser colocadas apenas as libs essenciais para a execução do pipeline
+pandas
+SQLAlchemy
+pymysql
+python-dotenv
