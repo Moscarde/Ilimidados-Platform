@@ -5,7 +5,9 @@ class InstagramContentStoryDataRaw(Base):
     __tablename__ = "instagram_content_story_data_raw"
 
     story_id = Column(BigInteger, primary_key=True, unique=True, nullable=False)
-    ig_account_id = Column(Integer)
+    ig_account_id = Column(BigInteger)
+    ig_account_username = Column(String(100))
+    ig_account_name = Column(String(100))
     description = Column(Text)
     duration_sec = Column(Integer)
     publish_time = Column(TIMESTAMP)
@@ -19,4 +21,5 @@ class InstagramContentStoryDataRaw(Base):
     shares = Column(Integer)
     profile_visits = Column(Integer)
     replies = Column(Integer)
+    stickers_taps = Column(Integer)
     navigation = Column(Integer)

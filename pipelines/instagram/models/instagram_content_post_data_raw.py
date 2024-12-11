@@ -5,7 +5,9 @@ class InstagramContentPostDataRaw(Base):
     __tablename__ = "instagram_content_post_data_raw"
 
     post_id = Column(BigInteger, primary_key=True, unique=True, nullable=False)
-    ig_account_id = Column(Integer)
+    ig_account_id = Column(BigInteger)
+    ig_account_username = Column(String(100))
+    ig_account_name = Column(String(100))
     description = Column(Text)
     duration_sec = Column(Integer)
     publish_time = Column(TIMESTAMP)
