@@ -1,19 +1,20 @@
-# TODO: desenvolver processo principal que executa to_raw e to_clean
+import os
 
 from db.database import engine
+from etl.load import load_data
+from etl.transform import transform_data
 from models.base import Base
-from models import (
-    InstagramAudienceInstagramFollowersRaw,
-    InstagramFollowsInstagramFollowsRaw,
-    InstagramAudienceDemographicsRaw,
-    InstagramAudienceTopCitiesRaw,
-    InstagramAudienceTopCountriesRaw,
-    InstagramAudienceTopPagesRaw,
-    InstagramReachReachRaw,
-    InstagramTopContentFormatsPublishedContentRaw,
-    InstagramVisitsProfileVisitsRaw,
-    InstagramContentPostDataRaw,
-    InstagramContentStoryDataRaw)
 
-# Criar tabelas no banco de dados
-Base.metadata.create_all(bind=engine)
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+def main():
+    # Criar tabelas no banco de dados
+    print("Criando tabelas no banco de dados")
+    Base.metadata.create_all(bind=engine)
+
+    extraction_dir = r"pipelines/instagram/etl/extraction_files"
+    trasnformed_data = transform_data(extraction_dir)
+    load_data(trasnformed_data)
+
+if __name__ == "__main__":
+    main()
